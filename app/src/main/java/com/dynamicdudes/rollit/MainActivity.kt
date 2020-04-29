@@ -6,8 +6,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
-    var randomNumber1 : Int = 0
-    var randomNumber2 : Int = 0
+    private var randomNumber1 : Int? = null
+    private var randomNumber2 : Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
     fun rollDice(){
         randomNumber1 = selectImage(Random.nextInt(6) + 1)
         randomNumber2 = selectImage(Random.nextInt(6) + 1)
-        dice_image_1.setImageResource(randomNumber1)
-        dice_image_2.setImageResource(randomNumber2)
+        dice_image_1.setImageResource(randomNumber1!!)
+        dice_image_2.setImageResource(randomNumber2!!)
     }
     fun selectImage(ranNum:Int) : Int{
         return when(ranNum){
